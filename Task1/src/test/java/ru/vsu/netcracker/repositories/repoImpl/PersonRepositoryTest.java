@@ -71,7 +71,7 @@ public class PersonRepositoryTest {
 
     @Test
     public void deletePerson() throws Exception {
-        PersonRepository actualPersonRepository = new PersonRepository(2);
+        PersonRepository actualPersonRepository = new PersonRepository(4);
         actualPersonRepository.add(person1);
         actualPersonRepository.add(person2);
         actualPersonRepository.add(person3);
@@ -86,8 +86,8 @@ public class PersonRepositoryTest {
         expectedPersonRepository.add(person4);
 
 
-        Object[] actPers = actualPersonRepository.getRepository();
-        Object[] expPers = expectedPersonRepository.getRepository();
+        Person[] actPers = actualPersonRepository.getRepository();
+        Person[] expPers = expectedPersonRepository.getRepository();
 
         assertArrayEquals(expPers, actPers);
     }

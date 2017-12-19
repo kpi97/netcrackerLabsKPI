@@ -23,14 +23,14 @@ public abstract class Repository<T> implements IRepository<T> {
     @Override
     public void add(T obj) {
         if (!isFull()) {
-            list[++tail] = (T)obj;
+            list[++tail] = obj;
         }
         else {
             T[] newList = (T[])new Object[maxSize * 2];
             for (int i = 0; i <= tail; i++) {
                 newList[i] = list[i];
             }
-            list = newList;
+            list = (T[])newList;
             maxSize = maxSize * 2;
             list[++tail] = (T)obj;
         }
@@ -69,7 +69,7 @@ public abstract class Repository<T> implements IRepository<T> {
 
     @Override
     public T[] getRepository() {
-        return list;
+        return (T[])list;
     }
 
     /**
